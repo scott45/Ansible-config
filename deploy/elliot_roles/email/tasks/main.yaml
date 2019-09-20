@@ -1,0 +1,44 @@
+# email tasks to send emails for notification
+
+module: sendgrid
+short_description: Sends an email with the SendGrid API
+description:
+   - Sends an email with a SendGrid account through their API, not through
+     the SMTP service.
+notes:
+   - This module is non-idempotent because it sends an email through the
+     external API. It is idempotent only in the case that the module fails.
+   - Like the other notification modules, this one requires an external
+     dependency to work. In this case, you'll need an active SendGrid
+     account.
+options:
+  username:
+    description:
+      username for logging into the SendGrid account
+    required: true
+  password:
+    description: password that corresponds to the username
+    required: true
+  from_address:
+    description:
+      the address in the "from" field for the email
+    required: true
+  to_addresses:
+    description:
+      a list with one or more recipient email addresses
+    required: true
+  subject:
+    description:
+      the desired subject for the email
+    required: true
+
+# send an email 
+- sendgrid:
+    username: "{{ sendgrid_username }}"
+    password: "{{ sendgrid_password }}"
+    from_address: "{{ sendgrid_from_address }}"
+    to_addresses:
+      - "{{ sendgrid_to_address }}"
+    subject: "{{ sendgrid_subject }}"
+    body: "{{ sendgrid_body }}"
+  delegate_to: "{{ sendgrid_delegate_to }}"

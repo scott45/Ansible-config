@@ -1,0 +1,13 @@
+# values to be passed certbot tasks
+
+---
+
+certbot_required_packages:
+  - certbot
+  - certbot-dns-google
+
+certbot_auto_renew: true
+certbot_generate_certs: true
+certbot_admin_email: ops@elliot.com
+certbot_script: /usr/local/bin/certbot
+certbot_output_dir: "/etc/letsencrypt/live/{{ domain_url }}"

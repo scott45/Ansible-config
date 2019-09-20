@@ -1,0 +1,13 @@
+# for now using all file, for separation of concern in the future, there could be separation of values e.g staging, prod, QA, dev
+
+# gcloud
+gcloud_project_id: "{{ gcloud_project_id }}"
+gcloud_private_key_id: "{{ gcloud_private_key_id }}"
+gcloud_private_key: "{{ gcloud_private_key }}"
+gcloud_client_email: "{{ gcloud_client_email }}"
+gcloud_client_id: "{{ gcloud_client_id }}"
+gcloud_client_x509_cert_url: "{{ gcloud_client_x509_cert_url }}"
+gcloud_deploy_service_account_json: "{{ gcloud_deploy_service_account_json }}"
+
+# elliot domain
+dns: "{{ domain_url }}"

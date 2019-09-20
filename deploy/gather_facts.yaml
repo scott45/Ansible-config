@@ -1,0 +1,12 @@
+---
+
+- name: Gather facts
+  hosts: all
+  become: yes
+  become_method: "sudo"
+  tasks:
+    - name: gather facts from all servers
+      setup:
+      delegate_to: "{{item}}"
+      delegate_facts: True
+      loop: "{{groups['all']}}"

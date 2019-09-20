@@ -1,0 +1,26 @@
+# cert bot tasks to generate and renew certs for all listed domains
+
+---
+
+- name: Install required packages
+  pip:
+    name: "{{ certbot_required_packages }}"
+    state: latest
+  when: certbot_generate_certs
+  tags: ['certbot', 'certbot:install']
+
+# /etc/elliot/keyfile.json to be created on the server holding the key for authorization
+- name: Generate cert for app and container.
+  command: "certbot  certonly --non-interactive --agree-tos --dns-google --dns-google-credentials /etc/elliot/keyfile.json --email {{ certbot_admin_email }} --dns-google-propagation-seconds 180 -d {{ domain_url }} -d *.{{ domain_url }}"
+  args:
+    creates: "{{ certbot_output_dir }}"
+  when: certbot_generate_certs
+  tags: ['certbot', 'certbot:configuration']
+
+- name: Ensure a cron job to auto-renew the cert exists
+  cron: name="daily auto renew cert check"
+        special_time=daily
+        job="{{ certbot_script }} renew --keep-until-expiring --quiet"
+        state=present
+  when: certbot_generate_certs and certbot_auto_renew
+  tags: ['certbot', 'certbot:configuration'] 

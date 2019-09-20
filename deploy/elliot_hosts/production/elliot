@@ -1,0 +1,5 @@
+# list production domains here
+domain_url: "elliot-prod.com,elliot-prod.com,elliot-prod.com"
+
+certbot_generate_certs: false
+certbot_auto_renew: false

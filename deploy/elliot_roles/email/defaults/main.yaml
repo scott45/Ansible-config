@@ -1,0 +1,12 @@
+# env vars to be passed to email tasks
+
+---
+
+sendgrid_username: elliot
+sendgrid_password: elliot
+sendgrid_from_address: elliot@update.com
+sendgrid_to_addresses: elliot@support.com
+sendgrid_subject: notify support manually do tasks
+sendgrid_body: please manually do the tasks as we work on an automated approach
+sendgrid_delegate_to: localhost
+

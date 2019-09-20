@@ -1,0 +1,4 @@
+vars_files:
+  - "base_vars/all"
+  - "elliot_hosts/production/elliot"
+  - "elliot_hosts/production/vault"

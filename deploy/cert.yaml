@@ -1,0 +1,13 @@
+---
+- import_playbook: gather_facts.yml
+
+- hosts: "elliot"
+  become: yes
+  become_method: "sudo"
+  gather_facts: true
+  pre_tasks:
+    - include_vars: "{{ item }}"
+      loop: "{{ vars_files|flatten(levels=1) }}"
+      tags: always
+  roles:
+    - certbot

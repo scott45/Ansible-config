@@ -1,0 +1,9 @@
+---
+
+- import_playbook: cert.yml
+
+- import_playbook: email.yml
+
+- import_playbook: ingress.yml
+
+- import_playbook: secrets.yml
