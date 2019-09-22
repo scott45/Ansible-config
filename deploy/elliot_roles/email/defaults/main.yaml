@@ -4,9 +4,9 @@
 
 sendgrid_username: elliot
 sendgrid_password: elliot
-sendgrid_from_address: elliot@update.com
-sendgrid_to_addresses: elliot@support.com
-sendgrid_subject: notify support manually do tasks
-sendgrid_body: please manually do the tasks as we work on an automated approach
+sendgrid_from_address: dev@elliot.store
+sendgrid_to_addresses: support@elliot.store
+sendgrid_subject: Emails support@elliot.store to inform customer support to complete Apple Pay set up
+sendgrid_body: Please complete Apple Pay set up
 sendgrid_delegate_to: localhost
 
