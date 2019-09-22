@@ -10,7 +10,7 @@
   tags: ['certbot', 'certbot:install']
 
 # /etc/elliot/keyfile.json to be created on the server holding the key for authorization
-- name: Generate cert for app and container.
+- name: Generate cert for app domain and subdomain.
   command: "certbot  certonly --non-interactive --agree-tos --dns-google --dns-google-credentials /etc/elliot/keyfile.json --email {{ certbot_admin_email }} --dns-google-propagation-seconds 180 -d {{ domain_url }} -d *.{{ domain_url }}"
   args:
     creates: "{{ certbot_output_dir }}"
