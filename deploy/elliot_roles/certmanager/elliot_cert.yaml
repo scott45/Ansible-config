@@ -1,0 +1,21 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: elliot-certificate
+  namespace: production
+spec:
+  secretName: elliot-certificate
+  commonName: '*.elliot.store'
+  dnsNames:
+  - '*.elliot.store'
+  - 'elliot.store'
+  acme:
+    config:
+    - dns01:
+        provider: clouddns
+      domains:
+        - '*.elliot.store
+        - 'elliot.store'
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
