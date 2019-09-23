@@ -6,6 +6,7 @@ metadata:
 spec:
   secretName: elliot-certificate
   commonName: '*.elliot.store'
+  renewBefore: 12h
   dnsNames:
   - '*.elliot.store'
   - 'elliot.store'
@@ -16,6 +17,144 @@ spec:
       domains:
         - '*.elliot.store
         - 'elliot.store'
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: buyf-certificate
+  namespace: production
+spec:
+  secretName: buyf-certificate
+  commonName: '*.elliot.store'
+  renewBefore: 12h
+  dnsNames:
+  - '*.buy.fauxfreckles.com'
+  - 'buy.fauxfreckles.com'
+  acme:
+    config:
+    - dns01:
+        provider: clouddns
+      domains:
+        - '*.buy.fauxfreckles.com'
+        - 'buy.fauxfreckles.com'
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: shopa-certificate
+  namespace: production
+spec:
+  secretName: shopa-certificate
+  commonName: '*.shop.aldaydenim.com'
+  renewBefore: 12h
+  dnsNames:
+  - '*.shop.aldaydenim.com'
+  - 'shop.aldaydenim.com'
+  acme:
+    config:
+    - dns01:
+        provider: clouddns
+      domains:
+        - '*.shop.aldaydenim.com'
+        - 'shop.aldaydenim.com'
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: shopb-certificate
+  namespace: production
+spec:
+  secretName: shopb-certificate
+  commonName: '*.shop.botabackpack.com'
+  renewBefore: 12h
+  dnsNames:
+  - '*.shop.botabackpack.com'
+  - 'shop.botabackpack.com'
+  acme:
+    config:
+    - dns01:
+        provider: clouddns
+      domains:
+        - '*.shop.botabackpack.com'
+        - 'shop.botabackpack.com'
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: checkout-certificate
+  namespace: production
+spec:
+  secretName: checkout-certificate
+  commonName: '*.checkout.koio.co'
+  renewBefore: 12h
+  dnsNames:
+  - '*.checkout.koio.co'
+  - 'checkout.koio.co'
+  acme:
+    config:
+    - dns01:
+        provider: clouddns
+      domains:
+        - '*.checkout.koio.co'
+        - 'checkout.koio.co'
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: sleep-certificate
+  namespace: production
+spec:
+  secretName: sleep-certificate
+  commonName: '*.sleep.wtf'
+  renewBefore: 12h
+  dnsNames:
+  - '*.sleep.wtf'
+  - 'sleep.wtf'
+  acme:
+    config:
+    - dns01:
+        provider: clouddns
+      domains:
+        - '*.sleep.wtf''
+        - 'sleep.wtf'
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: flashsale-certificate
+  namespace: production
+spec:
+  secretName: flashsale-certificate
+  commonName: 'flashsale.beauts.com'
+  renewBefore: 12h
+  dnsNames:
+  - '*.flashsale.beauts.com'
+  - 'flashsale.beauts.com'
+  acme:
+    config:
+    - dns01:
+        provider: clouddns
+      domains:
+        - '*.flashsale.beauts.com'
+        - 'flashsale.beauts.com'
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
