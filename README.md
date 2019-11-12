@@ -6,5 +6,3 @@
 * Secrets update
 * Certs generations 
 * Notifications using email / sendgrid
-
-#### Content to be put later
