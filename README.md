@@ -4,6 +4,6 @@
 
 #### Ansible configs to automate;
 * K8S ingress adding.
-* Secrets update
+* Secrets update.
 * Certs generations 
 * Notifications using email / sendgrid
